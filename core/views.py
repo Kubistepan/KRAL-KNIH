@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.views import View
+from django.views.generic import FormView, ListView
 
 from core.models import Book
 
@@ -22,13 +23,10 @@ def show_about(request):
     )
 
 
-class BooksView(View):
-    def get(self, request):
-        return render(
-            request,
-            template_name='books.html',
-            context={'books': Book.objects.all()}
-        )
+class BooksView(ListView):
+    template_name = 'books.html'
+    model = Book
+
 
 
 
