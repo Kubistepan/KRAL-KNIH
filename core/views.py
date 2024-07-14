@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View
-from django.views.generic import FormView, ListView
+from django.views.generic import FormView, ListView, DetailView
 
 from core.models import Book
 
@@ -25,6 +25,11 @@ def show_about(request):
 
 class BooksView(ListView):
     template_name = 'books.html'
+    model = Book
+
+
+class BookDetailView(DetailView):
+    template_name = 'book_detail.html'
     model = Book
 
 

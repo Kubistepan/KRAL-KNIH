@@ -4,14 +4,22 @@
     
 <h1>Naše nabídka</h1>
 {% for book in object_list %}
-<div class="row">
-	<div class="col-lg-4">
-        <img class="thumbnail" src="{{ book.thumbnail }}" width="33" height="33">
-		<div class="box-element product">
-            <h6><strong>{{ book }}</strong></h6>
-            <hr>
-		</div>
-	</div>
-</div>    
+                    <a href="{% url 'core:book_detail' pk=book.pk %}">
+    <div class="row">
+	    <div class="col-lg-4">
+            <img class="thumbnail" src="{{ book.thumbnail }}">
+		    <div class="box-element product">
+                <h6>Název: <strong>{{ book }}</strong></h6>
+                <h7>
+                     <a/>
+                Autor: 
+                  {% for author in book.authors.all %}
+                      {{ author }},
+                  {% endfor %}
+                </h7>
+                <hr>
+		    </div>
+	    </div>
+    </div>
 {% endfor %}
 {% endblock %}

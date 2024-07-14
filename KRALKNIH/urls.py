@@ -29,16 +29,11 @@ urlpatterns = [
     path('', include('core.urls')),
     path('tags/', include('tags.urls')),
     path('likes/', include('likes.urls')),
-
-   
-   
-   
-   
  
     path('accounts/login/', SubmittableLoginView.as_view(), name='login'), 
     path('accounts/signup/', SignUpView.as_view(), name='signup'),         
     path('accounts/password_change/', SubmittablePasswordChangeView.as_view(), name='password_change'),
     path('accounts/', include('django.contrib.auth.urls')),
-
-
  ]
+
+
